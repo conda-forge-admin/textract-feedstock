@@ -1,6 +1,6 @@
 {% set name = "textract" %}
-{% set version = "1.6.5" %}
-{% set sha256 = "68f0f09056885821e6c43d8538987518daa94057c306679f2857cc5ee66ad850" %}
+{% set version = "2.0.0" %}
+{% set sha256 = "358e0281d9668f9623da194a820c9d2b1224b42e96e79a8167a987d690a5bd2a" %}
 
 package:
   name: {{ name }}
@@ -8,7 +8,7 @@ package:
 
 source:
   fn: {{ name }}-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
@@ -18,12 +18,13 @@ build:
 
 requirements:
   host:
-    - python >=3.6
+    - python {{ python_min }}
     - pip
     - setuptools
+    - uv-build
 
   run:
-    - python >=3.6
+    - python >={{ python_min }}
     - argcomplete
     - chardet
     - python-pptx >=0.5.1
@@ -69,9 +70,10 @@ test:
     - textract.parsers.wav_parser
     - textract.parsers.xls_parser
     - textract.parsers.xlsx_parser
-
   commands:
     - textract -h
+  requires:
+    - python {{ python_min }}
 
 about:
   home: https://github.com/deanmalmgren/textract
