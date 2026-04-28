@@ -18,12 +18,13 @@ build:
 
 requirements:
   host:
-    - python >=3.6
+    - python {{ python_min }}
     - pip
     - setuptools
+    - uv-build
 
   run:
-    - python >=3.6
+    - python >={{ python_min }}
     - argcomplete
     - chardet
     - python-pptx >=0.5.1
@@ -69,9 +70,10 @@ test:
     - textract.parsers.wav_parser
     - textract.parsers.xls_parser
     - textract.parsers.xlsx_parser
-
   commands:
     - textract -h
+  requires:
+    - python {{ python_min }}
 
 about:
   home: https://github.com/deanmalmgren/textract
