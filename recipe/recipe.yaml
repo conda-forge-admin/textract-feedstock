@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: textract
-  version: "2.1.0"
+  version: 2.1.0
   sha256: e1558d83a797bb2ef4f32531eb9dd8b2c19bcfbdc8dec9f616f0cf05450d852d
 
 package:
@@ -21,7 +21,7 @@ build:
 
 requirements:
   host:
-    - python ${{ python_min }}
+    - python ${{ python_min }}.*
     - pip
     - setuptools
     - uv-build
@@ -80,7 +80,7 @@ tests:
         - "*"
   - requirements:
       run:
-        - python ${{ python_min }}
+        - python ${{ python_min }}.*
     script:
       - textract -h
 
