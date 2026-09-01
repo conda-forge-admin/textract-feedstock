@@ -36,6 +36,7 @@ requirements:
     - speechrecognition >=3.1.0
     - msg-extractor
     - six
+    - openpyxl
 
 test:
   imports:
