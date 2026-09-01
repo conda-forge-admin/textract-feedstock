@@ -1,6 +1,6 @@
 {% set name = "textract" %}
-{% set version = "2.0.0" %}
-{% set sha256 = "358e0281d9668f9623da194a820c9d2b1224b42e96e79a8167a987d690a5bd2a" %}
+{% set version = "2.1.0" %}
+{% set sha256 = "e1558d83a797bb2ef4f32531eb9dd8b2c19bcfbdc8dec9f616f0cf05450d852d" %}
 
 package:
   name: {{ name }}
@@ -8,7 +8,7 @@ package:
 
 source:
   fn: {{ name }}-{{ version }}.tar.gz
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
@@ -36,6 +36,7 @@ requirements:
     - speechrecognition >=3.1.0
     - msg-extractor
     - six
+    - openpyxl
 
 test:
   imports:
